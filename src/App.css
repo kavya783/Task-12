@@ -1,0 +1,11 @@
+body, html {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  background-image: url("https://png.pngtree.com/element_our/sm/20180408/sm_5ac9b8967574d.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

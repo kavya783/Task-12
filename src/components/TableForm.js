@@ -5,7 +5,7 @@ import { collection, getDocs, doc, deleteDoc, query, orderBy } from "firebase/fi
 import { db } from "../firebase";
 import '../App.css';
 import ActionButton from "./ActionButton";
-  
+
 function TableForm() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [products, setProducts] = useState([]);
@@ -19,7 +19,7 @@ function TableForm() {
     const q = query(collection(db, "products"), orderBy("createdAt", "desc"));
     const productSnap = await getDocs(q);
     const productList = productSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setProducts(productList); 
+    setProducts(productList);
     setCurrentPage(1);
   };
 
@@ -58,7 +58,7 @@ function TableForm() {
     <>
 
 
-      <form className="container d-md-block d-none  p-4 mb-5 mt-5 pt-5 rounded ">
+      <div className="container d-md-block d-none p-4 mb-5 mt-5 pt-5 rounded">
         <div className=" d-md-block d-none">
           <h2 className="text-center text-danger text-decoration-underline mb-3 ">
             CRUD Operations in React
@@ -112,7 +112,7 @@ function TableForm() {
           product={selectedProduct}
           show={showView}
           handleClose={() => setShowView(false)}
-          
+
         />
 
 
@@ -171,16 +171,18 @@ function TableForm() {
           {filteredProducts.length > itemsPerPage && (
             <div className="d-flex justify-content-center mt-4">
               <button
+                type="button"
                 className="btn btn-outline-light me-2"
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
               >
-                 {'<'}
+                {'<'}
               </button>
               {[...Array(totalPages)].map((_, i) => {
                 const page = i + 1;
                 return (
                   <button
+                    type="button"
                     key={i}
                     className={`btn mx-1 ${currentPage === page ? "btn-danger" : "btn-outline-light"}`}
                     onClick={() => setCurrentPage(page)}
@@ -190,16 +192,17 @@ function TableForm() {
                 );
               })}
               <button
+                type="button"
                 className="btn btn-outline-light ms-2"
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
               >
-                 {'>'}
+                {'>'}
               </button>
             </div>
           )}
         </div>
-      </form>
+      </div>
 
 
 

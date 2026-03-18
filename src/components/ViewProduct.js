@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function ViewProduct({ product, show, handleClose }) {
   const [name, setName] = useState("");

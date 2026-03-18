@@ -1,5 +1,5 @@
 import './App.css';
-// import TableForm from './components/TableForm';
+import TableForm from './components/TableForm';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -11,8 +11,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
   return (
    <>
-   <h1 className='text-center'>Hello, World!</h1>
-  {/* <TableForm /> */}
+
+  <TableForm />
 
    {/* <ToastContainer /> */}
    </>
